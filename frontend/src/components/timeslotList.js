@@ -139,7 +139,7 @@ const TimeslotList = () => {
             <Row gutter={[16, 16]}>
                 {timeslots.map((slot) => (
                     <Col span={8} key={slot._id}>
-                        <Card title={`Timeslot on ${moment(slot.date).format('dddd, MMMM D, YYYY')} at ${moment(slot.time, 'HH:mm').format('h:mm A')}`}>
+                        <Card title={`Timeslot on ${formatDate(slot.date, slot.time)}`}>
                             <p>Status: {slot.isBooked ? 'Booked' : 'Available'}</p>
                             <Button type={slot.isBooked ? 'danger' : 'primary'} onClick={() => toggleAvailability(slot._id, slot.isBooked)}>
                                 {slot.isBooked ? 'Make Available' : 'Mark as Booked'}
